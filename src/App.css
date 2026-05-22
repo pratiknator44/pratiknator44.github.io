@@ -587,3 +587,75 @@
   animation: modi-ji-slide 2s ease-in-out forwards;
   z-index: 4;
 }
+
+/* ── Portrait Toast (non-blocking) ── */
+.portrait-toast {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.72);
+  color: #ffd700;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
+  z-index: 9999;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* ── Mobile Controls ── */
+.mobile-controls {
+  position: absolute;
+  bottom: 75px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 24px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.mobile-dpad {
+  display: flex;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.mobile-btn {
+  width: 68px;
+  height: 68px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 30px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  pointer-events: auto;
+}
+
+.mobile-btn:active {
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0.93);
+}
+
+.mobile-btn-jump {
+  width: 80px;
+  height: 80px;
+  background: rgba(224, 107, 47, 0.5);
+  border: 3px solid #e06b2f;
+  border-radius: 50%;
+  font-size: 32px;
+  pointer-events: auto;
+}

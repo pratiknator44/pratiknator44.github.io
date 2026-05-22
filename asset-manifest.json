@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pratik-agarwal/static/css/main.423de043.css",
-    "main.js": "/pratik-agarwal/static/js/main.3a25f93c.js",
+    "main.js": "/pratik-agarwal/static/js/main.f39d5cbf.js",
     "static/js/453.e77d618d.chunk.js": "/pratik-agarwal/static/js/453.e77d618d.chunk.js",
     "index.html": "/pratik-agarwal/index.html",
     "main.423de043.css.map": "/pratik-agarwal/static/css/main.423de043.css.map",
-    "main.3a25f93c.js.map": "/pratik-agarwal/static/js/main.3a25f93c.js.map",
+    "main.f39d5cbf.js.map": "/pratik-agarwal/static/js/main.f39d5cbf.js.map",
     "453.e77d618d.chunk.js.map": "/pratik-agarwal/static/js/453.e77d618d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.423de043.css",
-    "static/js/main.3a25f93c.js"
+    "static/js/main.f39d5cbf.js"
   ]
 }

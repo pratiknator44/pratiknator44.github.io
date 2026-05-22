@@ -36,6 +36,8 @@ function App() {
   const [showModiJi, setShowModiJi] = useState(false);
   const [scale, setScale] = useState(1);
   const [showSplash, setShowSplash] = useState(true);
+  const [isPortrait, setIsPortrait] = useState(() => window.innerHeight > window.innerWidth);
+  const [isMobile] = useState(() => 'ontouchstart' in window || navigator.maxTouchPoints > 0);
   const gameFrameRef = useRef(null);
   const controlsRef = useRef({ left: false, right: false, jump: false, shift: false });
   const jumpQueuedRef = useRef(false);
@@ -77,6 +79,17 @@ function App() {
       setScale(rect.width / 960);
     }
   }, [showSplash]);
+
+  // Track portrait orientation for mobile warning
+  useEffect(() => {
+    const checkOrientation = () => setIsPortrait(window.innerHeight > window.innerWidth);
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', checkOrientation);
+    return () => {
+      window.removeEventListener('resize', checkOrientation);
+      window.removeEventListener('orientationchange', checkOrientation);
+    };
+  }, []);
 
   // Preload all game assets
   useEffect(() => {
@@ -441,8 +454,28 @@ function App() {
     setShowOverlay(false);
   };
 
+  const handleTouchStart = (control) => (e) => {
+    e.preventDefault();
+    controlsRef.current[control] = true;
+    if (control === 'jump') jumpQueuedRef.current = true;
+    if (!startedRef.current) {
+      startedRef.current = true;
+      setStarted(true);
+    }
+  };
+
+  const handleTouchEnd = (control) => (e) => {
+    e.preventDefault();
+    controlsRef.current[control] = false;
+  };
+
   return (
     <div className="app-shell">
+      {isPortrait && isMobile && (
+        <div className="portrait-toast">
+          🔄 Rotate for better experience
+        </div>
+      )}
       {showSplash && (
         <div className="splash-screen">
           <img src={asset('mario-small-running.gif')} alt="Mario Running" className="splash-mario"/>
@@ -670,6 +703,30 @@ function App() {
                 Replay
               </button>
             </div>
+          </div>
+        )}
+        {isMobile && (
+          <div className="mobile-controls">
+            <div className="mobile-dpad">
+              <button
+                className="mobile-btn"
+                onTouchStart={handleTouchStart('left')}
+                onTouchEnd={handleTouchEnd('left')}
+                onTouchCancel={handleTouchEnd('left')}
+              >◀</button>
+              <button
+                className="mobile-btn"
+                onTouchStart={handleTouchStart('right')}
+                onTouchEnd={handleTouchEnd('right')}
+                onTouchCancel={handleTouchEnd('right')}
+              >▶</button>
+            </div>
+            <button
+              className="mobile-btn mobile-btn-jump"
+              onTouchStart={handleTouchStart('jump')}
+              onTouchEnd={handleTouchEnd('jump')}
+              onTouchCancel={handleTouchEnd('jump')}
+            >▲</button>
           </div>
         )}
         </div>{/* end .game-inner */}

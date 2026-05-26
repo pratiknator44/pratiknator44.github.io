@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/pratik-agarwal/static/css/main.36a578a8.css",
-    "main.js": "/pratik-agarwal/static/js/main.f39d5cbf.js",
+    "main.css": "/pratik-agarwal/static/css/main.330bb55c.css",
+    "main.js": "/pratik-agarwal/static/js/main.047e470c.js",
+    "static/css/359.ef23b43e.chunk.css": "/pratik-agarwal/static/css/359.ef23b43e.chunk.css",
+    "static/js/359.b55d21a4.chunk.js": "/pratik-agarwal/static/js/359.b55d21a4.chunk.js",
     "static/js/453.e77d618d.chunk.js": "/pratik-agarwal/static/js/453.e77d618d.chunk.js",
     "index.html": "/pratik-agarwal/index.html",
-    "main.36a578a8.css.map": "/pratik-agarwal/static/css/main.36a578a8.css.map",
-    "main.f39d5cbf.js.map": "/pratik-agarwal/static/js/main.f39d5cbf.js.map",
+    "main.330bb55c.css.map": "/pratik-agarwal/static/css/main.330bb55c.css.map",
+    "main.047e470c.js.map": "/pratik-agarwal/static/js/main.047e470c.js.map",
+    "359.ef23b43e.chunk.css.map": "/pratik-agarwal/static/css/359.ef23b43e.chunk.css.map",
+    "359.b55d21a4.chunk.js.map": "/pratik-agarwal/static/js/359.b55d21a4.chunk.js.map",
     "453.e77d618d.chunk.js.map": "/pratik-agarwal/static/js/453.e77d618d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.36a578a8.css",
-    "static/js/main.f39d5cbf.js"
+    "static/css/main.330bb55c.css",
+    "static/js/main.047e470c.js"
   ]
 }

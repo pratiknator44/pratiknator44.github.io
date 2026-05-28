@@ -57,6 +57,7 @@ function CourageStage1() {
   const [isCinematic, setIsCinematic] = useState(false);
   const [isMobile] = useState(() => 'ontouchstart' in window || navigator.maxTouchPoints > 0);
   const [isPortrait, setIsPortrait] = useState(() => window.innerHeight > window.innerWidth);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const nearbyBatIdRef = useRef(null);
   const kingRamsesHealthRef = useRef(100);
   const bossDefeatedRef = useRef(false);
@@ -211,6 +212,21 @@ function CourageStage1() {
       window.removeEventListener('orientationchange', checkOrientation);
     };
   }, []);
+
+  // Track fullscreen state
+  useEffect(() => {
+    const onFsChange = () => setIsFullscreen(!!document.fullscreenElement);
+    document.addEventListener('fullscreenchange', onFsChange);
+    return () => document.removeEventListener('fullscreenchange', onFsChange);
+  }, []);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  };
 
   // Keyboard controls
   useEffect(() => {
@@ -387,8 +403,9 @@ function CourageStage1() {
           return { x, y: 0, vx: 0, vy: 0, onGround: true, facing, state: newState };
         }
 
-        const moveSpeed = SPEEDS.MOVE;
-        const runSpeed = SPEEDS.RUN;
+        const speedScale = isMobile ? 0.55 : 1;
+        const moveSpeed = SPEEDS.MOVE * speedScale;
+        const runSpeed = SPEEDS.RUN * speedScale;
 
         if (controlsRef.current.left && !controlsRef.current.right) {
           vx = controlsRef.current.shift ? -runSpeed : -moveSpeed;
@@ -842,6 +859,16 @@ function CourageStage1() {
             >
               {musicOn ? '🔊' : '🔇'}
             </button>
+            {isMobile && (
+              <button
+                className="courage-fullscreen-btn"
+                type="button"
+                onClick={toggleFullscreen}
+                title={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
+              >
+                {isFullscreen ? '✕' : '⤢'}
+              </button>
+            )}
             <a
               href={`${process.env.PUBLIC_URL || ''}/assets/pratik_ag_resume.pdf`}
               download="Pratik_Agarwal_Resume.pdf"

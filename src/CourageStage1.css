@@ -1203,4 +1203,102 @@
     font-size: 11px;
     gap: 4px;
   }
+
+  /* Player - smaller on mobile portrait */
+  .courage-player {
+    width: 54px;
+    height: 60px;
+  }
+}
+
+/* ── Landscape mobile (short screens) ── */
+@media (orientation: landscape) and (max-height: 500px) {
+  /* Player - smaller on landscape mobile */
+  .courage-player {
+    width: 54px;
+    height: 60px;
+  }
+
+  /* Game Over Overlay - Landscape mobile */
+  .courage-game-over-overlay {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 8px;
+  }
+
+  .courage-game-over-content {
+    padding: 10px 14px;
+    max-width: 98vw;
+    max-height: 96vh;
+    overflow-y: auto;
+  }
+
+  .courage-win-content {
+    padding: 10px 14px;
+    max-height: 96vh;
+    overflow-y: auto;
+    width: 98vw;
+  }
+
+  /* Hide the large image in landscape to save vertical space */
+  .courage-game-over-image,
+  .courage-win-content .courage-game-over-image {
+    display: none;
+  }
+
+  .courage-game-over-title {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .courage-game-over-thanks {
+    font-size: 11px;
+    margin: 2px 0;
+  }
+
+  .courage-contact-subtext {
+    font-size: 10px;
+    line-height: 1.3;
+    margin-top: 2px;
+  }
+
+  .courage-contact-text {
+    font-size: 11px;
+  }
+
+  .courage-contact-info {
+    gap: 6px;
+  }
+
+  .courage-contact-icons-row {
+    gap: 12px;
+  }
+
+  .courage-contact-icon {
+    font-size: 16px;
+    width: 20px;
+  }
+
+  .courage-contact-icon-img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .courage-contact-icon-label {
+    font-size: 8px;
+  }
+
+  .courage-game-over-actions {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .courage-resume-btn,
+  .courage-linkedin-btn,
+  .courage-replay-button,
+  .courage-corporate-journey-btn {
+    padding: 4px 7px;
+    font-size: 10px;
+    gap: 3px;
+  }
 }

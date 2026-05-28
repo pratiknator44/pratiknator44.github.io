@@ -711,7 +711,7 @@ function App() {
               <button className="replay-button" onClick={handleReplay}>
                 Replay
               </button><br/>
-              <a href="/courage" className="courage-stage-btn courage-stage-btn-overlay">
+              <a href="#/courage" className="courage-stage-btn courage-stage-btn-overlay">
                 <img src={asset('courage/courage-standing.gif')} alt="Courage" className="courage-btn-sprite" />
                 Courage: King Ramses Curse
               </a>

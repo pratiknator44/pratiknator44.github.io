@@ -864,7 +864,7 @@ function CourageStage1() {
               📄 Resume
             </a>
             <a
-              href="/"
+              href={process.env.PUBLIC_URL || '/'}
               className="courage-corporate-journey-btn courage-top-btn"
               title="Back to Corporate Journey Game"
             >
@@ -1180,7 +1180,7 @@ function CourageStage1() {
               </div>
               <div className="courage-game-over-actions">
                 <a
-                  href="/"
+                  href={process.env.PUBLIC_URL || '/'}
                   className="courage-corporate-journey-btn"
                   title="Back to Corporate Journey Game"
                 >
@@ -1224,7 +1224,7 @@ function CourageStage1() {
 
               <div className="courage-game-over-actions">
                 <a
-                  href="/"
+                  href={process.env.PUBLIC_URL || '/'}
                   className="courage-corporate-journey-btn"
                   title="Back to Corporate Journey Game"
                 >
